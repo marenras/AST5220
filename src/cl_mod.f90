@@ -191,7 +191,7 @@ contains
     ! Writing transfer function and integrand to file for six different l-values
     do l=1, 6
        do k=1, n_hires
-          write(l, '(3(E17.8E3))')  k_hires(k)*c/H_0, Theta_transfer(l_values(l), k), integrand2(l_values(l),k) / (c*k_hires(k)/H_0)**(n_s-1.d0)
+          write(l, '(3(E17.8E3))')  k_hires(k)*c/H_0, Theta_transfer(l_values(l), k), integrand2(l_values(l),k) / (c*k_hires(k)/H_0)**(n_s-1.d0) * l_values(l) * (l_values(l)+1) * H_0 / (c*k_hires(k))
        end do
        write(7, '(1(I17))') ls(l_values(l))
     end do
@@ -200,6 +200,17 @@ contains
     do l=1, ls(l_num)
        write(8, '(2(E17.8E3))') ls_hires(l), cls_hires(l)
     end do
+
+    
+    close(1)
+    close(2)
+    close(3)
+    close(4)
+    close(5)
+    close(6)
+    close(7)
+    close(8)
+
 
   end subroutine write_to_file_cl_mod 
 

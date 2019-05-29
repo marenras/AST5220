@@ -10,7 +10,7 @@ module params
   real(dp), parameter :: Mpc = 3.08568025d22
 
   ! Cosmological parameters
-  real(dp), parameter :: Omega_b      = 0.055d0
+  real(dp), parameter :: Omega_b      = 0.057d0
   real(dp), parameter :: Omega_m      = 0.2d0
   real(dp), parameter :: Omega_r      = 8.3d-5
   real(dp), parameter :: Omega_nu     = 0.d0
