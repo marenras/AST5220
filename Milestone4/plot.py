@@ -38,7 +38,7 @@ for k in range(1,7):
 
 
 fig_CMB = plt.figure()
-plt.errorbar(l_real, CMB_real, yerr=[ndC,pdC], color='lightblue', label='Observed')
+plt.errorbar(l_real, CMB_real, yerr=[ndC,pdC], color='lightblue', label='Observed', zorder=1)
 plt.plot(l, C_l*5775/max(C_l), label='Default')
 plt.plot(l1, C_l1*5775/max(C_l1), label='Computed1')
 plt.plot(l2,C_l2*5775/max(C_l2), label='Computed2')
@@ -64,4 +64,3 @@ plt.show()
 #plt.legend(loc='best')
 #plt.grid()
 #plt.show()
-
