@@ -47,3 +47,4 @@ __pycache__/
 *.dat
 *.toc
 *.bin
+*~
