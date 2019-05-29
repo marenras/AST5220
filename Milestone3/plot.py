@@ -16,7 +16,7 @@ if len(sys.argv) > 1:
     if sys.argv[1] in ['save', 'Save']:
         save = True
     else:
-	    print("Please write 'save' in command line to save the plots as tex-files.")
+	    print("Please write 'save' in command line to save the plots.")
 	    sys.exit()
 
 
