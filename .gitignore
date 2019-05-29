@@ -42,7 +42,6 @@ __pycache__/
 *.bib
 *.png
 *.out
-*.txt
 *.toc
 *.bin
 *~
