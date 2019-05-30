@@ -21,7 +21,7 @@ if len(sys.argv) > 1:
 l_values = np.loadtxt('data/l_values.dat', unpack=True)
 
 # Reading in power spectra values with the best parameters
-l, C_l = np.loadtxt('data/powerspectras/CMB_spectrum_best_fit.dat', unpack=True)
+l, C_l = np.loadtxt('data/CMB_spectrum_best_fit.dat', unpack=True)
 
 # Reading in power spectra observed data
 l_real, CMB_real, ndC, pdC = np.loadtxt('data/COM_PowerSpect_CMB-TT-full_R3.01.txt', unpack=True)
@@ -54,6 +54,7 @@ for i in range(6):
    plt.plot(kcH[i], theta[i], label=r'l = %d' %(l_values[i]))
 plt.ylabel(r'$\Theta_l$')
 plt.xlabel(r'$ck/H_0$')
+plt.xlim([-10,500])
 plt.legend(loc='best')
 plt.grid()
 plt.show()
@@ -61,11 +62,14 @@ plt.show()
 fig_integrand = plt.figure()
 for i in range(6):
    plt.plot(kcH[i], integrand[i], label=r'l = %d' %(l_values[i]))
-plt.ylabel(r'$\Theta_l^2/k$')
+plt.ylabel(r'$l(l+1)\Theta_l^2 H_0/ck$')
 plt.xlabel(r'$ck/H_0$')
 plt.legend(loc='best')
+plt.axis([-10,500, -0.0001, 0.0016])
 plt.grid()
 plt.show()
 
 if save:
     fig_CMB.savefig("figures/CMB_best_fit.pdf", bbox_inches='tight')
+    fig_theta.savefig("figures/theta.pdf", bbox_inches='tight')
+    fig_integrand.savefig("figures/integrand.pdf", bbox_inches='tight')
