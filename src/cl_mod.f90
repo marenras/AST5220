@@ -186,12 +186,14 @@ contains
     open(7, file = '../Milestone4/data/l_values.dat', status = 'replace')
     open(8, file = '../Milestone4/data/powerspectras/CMB_spectrum_best_fit.dat', status = 'replace')
 
-    l_values = (/ 1, 5, 10, 20, 30, 44 /)
+    l_values = (/ 1, 12, 22, 30, 38, 44 /)
     
     ! Writing transfer function and integrand to file for six different l-values
     do l=1, 6
        do k=1, n_hires
-          write(l, '(3(E17.8E3))')  k_hires(k)*c/H_0, Theta_transfer(l_values(l), k), integrand2(l_values(l),k) / (c*k_hires(k)/H_0)**(n_s-1.d0) * l_values(l) * (l_values(l)+1) * H_0 / (c*k_hires(k))
+          write(l, '(3(E17.8E3))')  k_hires(k)*c/H_0, Theta_transfer(l_values(l), k), Theta_transfer(l_values(l), k)**2.d0/k 
+          !,  l_values(l) * (l_values(l)+1.d0) * Theta_transfer(l_values(l), k)**2.d0*H_0/(c*k_hires(k))
+          !, integrand2(l_values(l),k) / (c*k_hires(k)/H_0)**(n_s-1.d0) * l_values(l) * (l_values(l)+1) * H_0 / (c*k_hires(k))
        end do
        write(7, '(1(I17))') ls(l_values(l))
     end do
